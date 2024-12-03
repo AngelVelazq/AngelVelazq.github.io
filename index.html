@@ -1,51 +1,81 @@
-Introduction
-In Python, understanding how data types behave, especially in relation to mutability and immutability, is crucial for
-writing efficient and bug-free code. These concepts impact everything from memory management to function behavior. In
-this blog post, we’ll explore how Python handles variables, the difference between mutable and immutable objects, and
-how arguments are passed to functions. By the end, you’ll have a clear understanding of how Python manages memory and
-how it treats different types of data.
-
-id and Type
-Every object in Python has a unique identifier, which can be obtained using the built-in id() function. The id()
-function returns the memory address of the object, which helps us understand whether two variables are referencing the
-same object. The type() function, on the other hand, allows us to determine the type of the object. These two functions
-are essential for tracking the state of variables in Python and can help diagnose issues related to memory and object
-references, especially when dealing with mutable and immutable data types.
-
-Mutable Objects
-Mutable objects in Python are those that can be changed after they are created. Lists, dictionaries, and sets are
-examples of mutable objects. When a mutable object is modified, the changes are made in place, meaning the object’s
-memory address (and id()) does not change. For example, if you append an item to a list, the list itself is modified,
-and no new object is created. This behavior is important to understand because it can lead to unintended side effects if
-the same object is referenced in different places in your code.
-
-Immutable Objects
-Immutable objects, on the other hand, cannot be modified once they are created. Examples of immutable objects include
-integers, strings, and tuples. When you modify an immutable object, a new object is created instead of modifying the
-original one. For instance, when you try to change a string or a tuple, Python creates a new object with the updated
-value. This distinction is important because immutable objects can be safely shared across multiple parts of a program
-without the risk of unexpected changes, whereas mutable objects can be altered and potentially lead to bugs if shared
-incorrectly.
-
-Why Does It Matter and How Differently Does Python Treat Mutable and Immutable Objects
-The difference between mutable and immutable objects significantly impacts how Python handles memory and variable
-assignments. Immutable objects are stored once, and their values cannot be changed, which allows Python to optimize
-memory usage by reusing the same object when possible. Mutable objects, however, are copied or referenced depending on
-how they are assigned, and modifications to them affect the original object. This distinction matters because it
-influences performance (immutable objects can be cached for efficiency) and the behavior of your code, especially when
-passing objects to functions or sharing them between different parts of your program.
-
-How Arguments Are Passed to Functions and What Does That Imply for Mutable and Immutable Objects
-In Python, function arguments are passed by reference, meaning the function receives a reference to the original object,
-not a copy of it. However, the behavior of this passing mechanism differs for mutable and immutable objects. For
-immutable objects, since they cannot be modified in place, any changes made inside the function result in the creation
-of a new object, leaving the original object unchanged. For mutable objects, since they can be modified in place, any
-changes made inside the function will affect the original object. This behavior is critical to understand to avoid
-unintended side effects in your functions. If you need to protect an object from being modified within a function, you
-should use a copy or create a new object explicitly. Understanding this distinction helps in writing functions that
-behave as expected and avoid altering data unexpectedly.
-
-In conclusion, understanding how Python handles mutable and immutable objects, and how arguments are passed to
-functions, is fundamental to writing efficient and reliable code. By leveraging the right object types for the task at
-hand and carefully considering how data is shared across different parts of your program, you can avoid common pitfalls
-and write cleaner, more predictable code.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Data Types: Mutable vs Immutable</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS for styling -->
+</head>
+<body>
+    <header>
+        <h1>Understanding Mutable and Immutable Objects in Python</h1>
+    </header>
+    <article>
+        <section>
+            <h2>Introduction</h2> 
+            <p>In Python, understanding how data types behave, especially in relation to mutability and immutability, is crucial for
+                writing efficient and bug-free code. These concepts impact everything from memory management to function behavior. In
+                this blog post, we’ll explore how Python handles variables, the difference between mutable and immutable objects, and
+                how arguments are passed to functions. By the end, you’ll have a clear understanding of how Python manages memory and
+                how it treats different types of data.</p>
+        </section>
+        <section>
+            <h2>id and Type</h2>
+            <p>Every object in Python has a unique identifier, which can be obtained using the built-in id() function. The id()
+                function returns the memory address of the object, which helps us understand whether two variables are referencing the
+                same object. The type() function, on the other hand, allows us to determine the type of the object. These two functions
+                are essential for tracking the state of variables in Python and can help diagnose issues related to memory and object
+                references, especially when dealing with mutable and immutable data types.</p>
+        </section>
+        <section>
+            <h2>Mutable Objects</h2>
+            <p>Mutable objects in Python are those that can be changed after they are created. Lists, dictionaries, and sets are
+                examples of mutable objects. When a mutable object is modified, the changes are made in place, meaning the object’s
+                memory address (and id()) does not change. For example, if you append an item to a list, the list itself is modified,
+                and no new object is created. This behavior is important to understand because it can lead to unintended side effects if
+                the same object is referenced in different places in your code.</p>
+        </section>
+        <section>
+            <h2>Immutable Objects</h2>
+            <p>Immutable objects, on the other hand, cannot be modified once they are created. Examples of immutable objects include
+                integers, strings, and tuples. When you modify an immutable object, a new object is created instead of modifying the
+                original one. For instance, when you try to change a string or a tuple, Python creates a new object with the updated
+                value. This distinction is important because immutable objects can be safely shared across multiple parts of a program
+                without the risk of unexpected changes, whereas mutable objects can be altered and potentially lead to bugs if shared
+                incorrectly.</p>
+        </section>
+        <section>
+            <h2>Why Does It Matter?</h2>
+            <p>The difference between mutable and immutable objects significantly impacts how Python handles memory and variable
+                assignments. Immutable objects are stored once, and their values cannot be changed, which allows Python to optimize
+                memory usage by reusing the same object when possible. Mutable objects, however, are copied or referenced depending on
+                how they are assigned, and modifications to them affect the original object. This distinction matters because it
+                influences performance (immutable objects can be cached for efficiency) and the behavior of your code, especially when
+                passing objects to functions or sharing them between different parts of your program.</p>
+        </section>
+        <section>
+            <h2>How Arguments Are Passed to Functions</h2>
+            <p>In Python, function arguments are passed by reference, meaning the function receives a reference to the original object,
+                not a copy of it. However, the behavior of this passing mechanism differs for mutable and immutable objects. For
+                immutable objects, since they cannot be modified in place, any changes made inside the function result in the creation
+                of a new object, leaving the original object unchanged. For mutable objects, since they can be modified in place, any
+                changes made inside the function will affect the original object. This behavior is critical to understand to avoid
+                unintended side effects in your functions. If you need to protect an object from being modified within a function, you
+                should use a copy or create a new object explicitly. Understanding this distinction helps in writing functions that
+                behave as expected and avoid altering data unexpectedly.</p>
+        </section>
+        <section>
+            <h2>Conclusion</h2>
+            <p>Understanding how Python handles mutable and immutable objects, and how arguments are passed to functions, is
+                fundamental to writing efficient and reliable code. By leveraging the right object types for the task at hand and
+                carefully considering how data is shared across different parts of your program, you can avoid common pitfalls and
+                write cleaner, more predictable code.</p>
+        </section>
+    </article>
+    <footer>
+        <p>Blog by Angel Velazquez
+            <a href="https://github.com/angelvelazquez">Github</a>
+        </p>
+    </footer>
+</body>
+</html>
